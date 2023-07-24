@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Helm release test
-        uses: devopshobbies/helm-releaser@v1.0.11
+        uses: devopshobbies/helm-releaser@v1.0.12
         with:
           token: ${{ github.token }}
           genericChart: "https://github.com/devopshobbies/helm-generic/archive/refs/tags/0.0.6.tar.gz"
