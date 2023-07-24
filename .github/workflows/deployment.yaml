@@ -16,3 +16,4 @@ jobs:
           token: ${{ github.token }}
           genericChart: "https://github.com/devopshobbies/helm-generic/archive/refs/tags/0.0.6.tar.gz"
           kubeConfig: ${{ secrets.KUBE_CONFIG }}
+          context: "kind-kaiser-staging"
