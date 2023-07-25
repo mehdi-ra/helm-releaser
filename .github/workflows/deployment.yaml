@@ -13,7 +13,7 @@ jobs:
       - name: Install yq
         run: |
           # Install yq using pip
-          sudo apt install yq
+          sudo snap install yq
 
       - name: Update deployment.image.tag
         run: |
