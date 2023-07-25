@@ -18,7 +18,7 @@ jobs:
       - name: Update deployment.image.tag
         run: |
           # Update the deployment.image.tag using yq
-          yq eval .helm/values.yaml '.deployment.image.tag = "v1.2.3"' > .helm/values.yaml
+          sed -i "s/\(image:\s*repository:\s*devopshobbies\/backend\s*tag:\s*\)\"[^\"]*\"/\1\"v1.0.5\"/" .helm/values.yaml
       - name: Run echo values.yaml
         run: cat .helm/values.yaml
       
