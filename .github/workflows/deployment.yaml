@@ -9,7 +9,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Install yq
+        run: |
+          # Install yq using pip
+          pip install yq
 
+      - name: Update deployment.image.tag
+        run: |
+          # Update the deployment.image.tag using yq
+          yq eval '.deployment.image.tag = "v1.2.3"' values.yaml > updated_values.yaml
+      - name: Run echo values.yaml
+        run: cat .helm/values.yaml
+      
       - name: Helm release test
         uses: devopshobbies/helm-releaser@v1.0.19
         with:
