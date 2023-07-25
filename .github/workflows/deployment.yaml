@@ -13,12 +13,12 @@ jobs:
       - name: Install yq
         run: |
           # Install yq using pip
-          pip install yq
+          sudo apt install yq
 
       - name: Update deployment.image.tag
         run: |
           # Update the deployment.image.tag using yq
-          sed -i "s/\(image:\s*repository:\s*devopshobbies\/backend\s*tag:\s*\)\"[^\"]*\"/\1\"v1.0.5\"/" .helm/values.yaml
+          yq eval '.deployment.image.tag'="\"v1.0.5\"" .helm/values.yaml > .helm/values.yaml
       - name: Run echo values.yaml
         run: cat .helm/values.yaml
       
