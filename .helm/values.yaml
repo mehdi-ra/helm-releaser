@@ -1,6 +1,5 @@
 # Name of the application.
 applicationName: "kaiser-pavo"
-
 deployment:
   enabled: true
   # By default deploymentStrategy is set to rollingUpdate with maxSurge of 25% and maxUnavailable of 25%
@@ -10,7 +9,6 @@ deployment:
     # rollingUpdate:
     #   maxSurge: 25%
     #   maxUnavailable: 25%
-
   image:
     repository: devopshobbies/backend
-    tag: "v1.0.4"
+    tag: "v1.0.5"
