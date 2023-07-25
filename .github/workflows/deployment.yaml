@@ -9,24 +9,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
-      - name: "Read Git Info"
-        id: "git_info"
-        uses: mehdi-ra/git-info-action@v1.1.1
-
-        # CONFIGS (Optional)
-        with:
-          workDir: '.'
-          ignore-files: '.java, .groovy, .jar'
-          branch-fallback: 'main'
-          tag-fallback: '0.0.31'
-          fallback-commit-type: 'chore'
-          fallback-commit-scope: 'performance'
-          commit-msg-with-footer: 'true'
-          max-changelog-length: 200
 
       - name: Helm release test
-        uses: devopshobbies/helm-releaser@v1.0.14
+        uses: devopshobbies/helm-releaser@v1.0.16
         with:
           remoteRepository: ${{ vars.REMOTE_REPOSITORY }}
           chartName: "generic"
