@@ -12,13 +12,12 @@ jobs:
       
       - name: Install yq
         run: |
-          # Install yq using pip
           sudo snap install yq
 
       - name: Update deployment.image.tag
         run: |
-          # Update the deployment.image.tag using yq
-          yq eval '.deployment.image.tag'="\"v1.0.5\"" .helm/values.yaml > .helm/values.yaml
+          yq eval -i ".deployment.image.tag = \"v1.0.5\"" .helm/values.yaml
+          
       - name: Run echo values.yaml
         run: cat .helm/values.yaml
       
